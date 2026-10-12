@@ -7,6 +7,8 @@
 
 설치 없이 휴대폰 브라우저에서 바로 씁니다. 홈 화면에 추가하면 앱처럼 열립니다.
 
+**👉 바로 써 보기: https://hongchopper.github.io/cosmetic_ingredients/**
+
 | 화면 | 하는 일 | 원본 앱 |
 | --- | --- | --- |
 | 내 화장품 `#/` | 저장한 화장품 목록, 성분 종류별 개수 | MainActivity |
