@@ -76,6 +76,8 @@
           aliases: names.slice(1),
           english: row.english || '',
           comment: row.comment || '',
+          tags: row.tags || [],
+          skin: row.skin || { good: [], avoid: [] },
           keys: []
         };
         names.concat(row.english ? [row.english] : []).forEach(function (n) {
@@ -138,7 +140,12 @@
   function analyze(text, index) {
     var raws = splitRaw(text);
     var tokens = raws.map(function (s) { return s.split(LINE_JOIN).join(''); });
-    var result = { tokens: tokens, caution: [], allergy: [], good: [] };
+    // items: 전성분 순서 그대로, 각 성분이 사전의 어느 성분과 맞았는지 (없으면 hits: [])
+    var result = {
+      tokens: tokens,
+      items: tokens.map(function (t) { return { token: t, key: normalize(t), hits: [] }; }),
+      caution: [], allergy: [], good: []
+    };
     var seen = new Set();
 
     function keysOf(s) {
@@ -159,8 +166,10 @@
       }
       return null;
     }
+    var current = null; // 지금 보고 있는 전성분 항목
     function add(found, how, token) {
       found.forEach(function (entry) {
+        if (current.hits.indexOf(entry) === -1) current.hits.push(entry);
         var id = entry.category + ':' + entry.name;
         if (seen.has(id)) return;
         seen.add(id);
@@ -168,6 +177,8 @@
           name: entry.name,
           english: entry.english,
           comment: entry.comment,
+          tags: entry.tags,
+          skin: entry.skin,
           read: token,
           match: how
         });
@@ -175,6 +186,7 @@
     }
 
     raws.forEach(function (raw, n) {
+      current = result.items[n];
       var token = tokens[n];
       var whole = keysOf(token);
       var found = lookup(whole, 'exact');
