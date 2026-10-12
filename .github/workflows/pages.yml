@@ -29,6 +29,7 @@ jobs:
         with:
           node-version: 20
       - run: node tests/matcher.test.js
+      - run: node tests/insights.test.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
