@@ -1,13 +1,13 @@
 # 화안 (SwuMakeUpShot)
 
+**[👉 모바일 웹 바로 써 보기](https://hongchopper.github.io/cosmetic_ingredients/)** · [졸업프로젝트 원본 (SwuMakeUpShot)](https://github.com/hongchopper/SwuMakeUpShot)
+
 화장품 **전성분표를 사진으로 찍으면** 주의 성분, 알레르기 유발 성분, 좋은 성분을 자동으로 찾아 알려주는 서비스입니다.
 졸업프로젝트로 만든 Android 앱을 **모바일 웹**(`web/`)으로 옮기고 있습니다. Android 원본 코드는 비교용으로 그대로 두었습니다.
 
 ## 모바일 웹 (`web/`)
 
 설치 없이 휴대폰 브라우저에서 바로 씁니다. 홈 화면에 추가하면 앱처럼 열립니다.
-
-**👉 바로 써 보기: https://hongchopper.github.io/cosmetic_ingredients/**
 
 | 화면 | 하는 일 | 원본 앱 |
 | --- | --- | --- |
